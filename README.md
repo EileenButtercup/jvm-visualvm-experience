@@ -2,66 +2,53 @@
 
 Описание и инструкция к выполнению [здесь](https://github.com/netology-code/jd-homeworks/tree/master/jvm/README.md)
 
-### Результат работы программы:
+## Результат исследования
+#### Сведения из консоли
 ```
-0:28:01: Executing task ':JvmExperience.main()'...
-
 > Task :compileJava
 > Task :processResources NO-SOURCE
 > Task :classes
 
 > Task :JvmExperience.main()
 Please open 'ru.netology.JvmExperience' in VisualVm
-00:28:34.030: loading io.vertx // загрузка классов из пакета io.vertx в metaspace
+18:06:40.408295100: loading io.vertx
+18:06:40.843174800: loaded 529 classes
+```
+В момент начала работы программы подсистема загрузчиков классов ClassLoader выд>деляет память в metaspace для информации о константах,полях, методах и имени класса.
+![alt text](1.1.png)![alt text](1.2.png)![alt text](1.3.png)
 
-00:28:34.243: loaded 529 classes // загружено 529 классов, на графике Classes видно увеличение 
-числа классов, значение на графике Heap немного подросло
 ```
-![](png/Classes_34.png)![](png/Heap_34.png)![](png/Metaspace_34.png)
+18:06:43.851698700: loading io.netty
+18:06:44.453103600: loaded 2117 classes
 ```
-00:28:37.252: loading io.netty // загрузка классов из пакета io.netty в metaspace
+![alt text](2.1.png)![alt text](2.2.png)![alt text](2.3.png)
 
-00:28:37.625: loaded 2117 classes // загружено 2117 классов, значение на графике Classes значительно выросло,
- значение Heap снизилось в результате работы Garbage Collector, значение Metaspace значительно выросло
 ```
-![](png/Classes_37.png)![](png/Heap_37.png)![](png/Metaspace_37.png)
+18:06:47.456572900: loading org.springframework
+18:06:47.671412900: loaded 869 classes
 ```
-00:28:40.634: loading org.springframework // загрузка классов из пакета org.springframework в metaspace
+![alt text](3.1.png)![alt text](3.2.png)
 
-00:28:40.754: loaded 869 // загружено 869 классов, значение Classes выросло, продолжил рости Metaspace
 ```
-![](png/Classes_40.png)![](png/Heap_40.png)![](png/Metaspace_40.png)
+18:06:50.686040600: now see heap
+18:06:50.687061200: creating 5000000 objects
+18:06:51.017619200: created
 ```
-00:28:43.760: now see heap // информационное сообщении о необходимости смотреть на загрузку в куче
+![alt text](4.1.png)![alt text](4.2.png)
 
-00:28:43.760: creating 5000000 objects // создание 5 млн объектов
+```
+18:06:54.027263300: creating 5000000 objects
+18:06:54.316110200: created
+```
+![alt text](5.1.png)![alt text](5.2.png)
 
-00:28:44.965: created // создано 5 млн объектов, количество классов практически не изменилось, 
-значение Heap выросло из-за сознания большого количества объектов
 ```
-![](png/Classes_44.png)![](png/Heap_44.png)![](png/Metaspace_44.png)
-```
-00:28:47.972: creating 5000000 objects // создание 5 млн объектов
+18:06:57.525387300: creating 5000000 objects
+18:06:57.941897100: created
 
-00:28:48.332: created // создано 5 млн объектов, 
-значение Heap выросло из-за сознания большого количества объектов
-```
-![](png/Heap_48.png)
-``` 
-00:28:51.354: creating 5000000 objects // создание 5 млн объектов
-
-00:28:54.472: created // создано 5 млн объектов, зарезервированное значение Heap выросло, 
-а использованное снизилось в результате работы Garbage Collector
-```
-![](png/Heap_54.png)
-```
-
-BUILD SUCCESSFUL in 56s // Программа завершила работу, перед этим
-зарезервированное и использованное значение Heap выросло
-```
-![](png/Heap_55.png)![](png/Heap_56.png)
-```
+BUILD SUCCESSFUL in 55s
 2 actionable tasks: 2 executed
-0:28:58: Task execution finished ':JvmExperience.main()'.
+18:07:01: Task execution finished 'JvmExperience.main()'.
 ```
-
+![alt text](6.0.png)
+Программа завершила работу.
